@@ -23,10 +23,16 @@ export default function LessonPage() {
   const prevLesson = moduleData.lessons[currentIndex - 1];
   const nextLesson = moduleData.lessons[currentIndex + 1];
 
-  const lessonMaterials =
-  lesson.materials
-    ?.map((id) => materials.find((m) => m.id === id))
-    .filter((mat): mat is Material => mat !== undefined) || [];
+  const lessonMaterials: Material[] = [];
+
+if (lesson.materials) {
+  for (const id of lesson.materials) {
+    const material = materials.find((m) => m.id === id);
+    if (material) {
+      lessonMaterials.push(material);
+    }
+  }
+}
   
   return (
     <div className="max-w-4xl mx-auto">
