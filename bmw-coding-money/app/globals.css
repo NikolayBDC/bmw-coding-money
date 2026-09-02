@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+  }
+  * {
+    border-color: theme('colors.gray.700');
+  }
+  body {
+    @apply bg-bmw-black text-bmw-white;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Стилизация скроллбара */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1c1c1f;
+}
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e02424;
+}
+
+/* Плавные переходы */
+a, button {
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s, transform 0.2s;
+}
