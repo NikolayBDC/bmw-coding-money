@@ -46,7 +46,7 @@ export default function ModulePage() {
                   <h3 className="font-semibold">{lesson.title}</h3>
                   <div className="flex items-center gap-3 text-sm text-gray-400">
                     <span>{lesson.duration} мин</span>
-                    {lesson.materials?.length > 0 && (
+                    {(lesson.materials?.length ?? 0) > 0 && (
                       <>
                         <span className="flex items-center"><FileText className="h-3 w-3 mr-1" /> PDF</span>
                         <span className="flex items-center"><CheckSquare className="h-3 w-3 mr-1" /> Чек-лист</span>
