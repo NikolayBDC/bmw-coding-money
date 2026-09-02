@@ -2,6 +2,7 @@
 
 import { useParams, useRouter } from "next/navigation";
 import { modules, materials } from "@/data/mockData";
+import type { Material } from "@/types";
 import { useProgress } from "@/lib/progress-context";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
@@ -22,7 +23,10 @@ export default function LessonPage() {
   const prevLesson = moduleData.lessons[currentIndex - 1];
   const nextLesson = moduleData.lessons[currentIndex + 1];
 
-  const lessonMaterials = lesson.materials?.map((id) => materials.find((m) => m.id === id)).filter(Boolean) || [];
+  const lessonMaterials =
+  lesson.materials
+    ?.map((id) => materials.find((m) => m.id === id))
+    .filter((mat): mat is Material => mat !== undefined) || [];
 
   return (
     <div className="max-w-4xl mx-auto">
