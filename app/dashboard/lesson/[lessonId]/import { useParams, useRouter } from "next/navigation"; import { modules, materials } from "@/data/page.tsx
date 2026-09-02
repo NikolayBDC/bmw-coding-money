@@ -1,8 +1,8 @@
 "use client";
 
+import type { Material } from "@/types";
 import { useParams, useRouter } from "next/navigation";
 import { modules, materials } from "@/data/mockData";
-import type { Material } from "@/types";
 import { useProgress } from "@/lib/progress-context";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
@@ -27,7 +27,7 @@ export default function LessonPage() {
   lesson.materials
     ?.map((id) => materials.find((m) => m.id === id))
     .filter((mat): mat is Material => mat !== undefined) || [];
-
+  
   return (
     <div className="max-w-4xl mx-auto">
       <nav className="text-sm text-gray-400 mb-4">
